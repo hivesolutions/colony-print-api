@@ -26,24 +26,14 @@ def save(id, printer=None):
         result = api.print_hello_default_node(id, options=options)
 
     job_id = result["id"]
+    result = api.wait_job(job_id)
 
-    iterations = 0
-    while iterations < 10:
-        time.sleep(0.5)
-        try:
-            job = api.get_job(job_id)
-        except Exception as error:
-            continue
-        if not "result" in job:
-            continue
-        result = job["result"]
-        if not "output_data" in result:
-            continue
-        data_b64 = result["output_data"]
-        data = base64.b64decode(data_b64)
-        with open("output.pdf", "wb") as file:
-            file.write(data)
-        break
+    if not "output_data" in result:
+        raise appier.OperationalError(message="No output data in result")
+    data_b64 = result["output_data"]
+    data = base64.b64decode(data_b64)
+    with open("output.pdf", "wb") as file:
+        file.write(data)
 
     return result
 
