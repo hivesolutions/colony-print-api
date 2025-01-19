@@ -35,7 +35,7 @@ class NodeAPI:
     def print_printer_node(
         self,
         id: str,
-        printer: str,
+        printer: str | None = None,
         data: str | None = None,
         data_b64: str | None = None,
         name: str | None = None,
@@ -46,7 +46,7 @@ class NodeAPI:
     def print_hello_printer_node(
         self,
         id: str,
-        printer: str,
+        printer: str | None = None,
         type: str | None = None,
         format: str | None = None,
         options: dict | None = None,

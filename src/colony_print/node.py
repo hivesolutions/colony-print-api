@@ -61,7 +61,7 @@ class NodeAPI(object):
     def print_printer_node(
         self,
         id,
-        printer,
+        printer=None,
         data=None,
         data_b64=None,
         name=None,
@@ -85,7 +85,7 @@ class NodeAPI(object):
         return contents
 
     def print_hello_printer_node(
-        self, id, printer, type=None, format=None, options=None
+        self, id, printer=None, type=None, format=None, options=None
     ):
         url = self.base_url + "nodes/%s/printers/print_hello" % id
         contents = self.post(
