@@ -27,22 +27,16 @@ class NodeAPI(object):
         options=None,
     ):
         url = self.base_url + "nodes/%s/print" % id
-        params = dict()
-        if not data == None:
-            params["data"] = data
-        if not data_b64 == None:
-            params["data_b64"] = data_b64
-        if not name == None:
-            params["name"] = name
-        if not type == None:
-            params["type"] = type
-        if not format == None:
-            params["format"] = format
-        if not options == None:
-            params["options"] = json.dumps(options)
         contents = self.post(
             url,
-            params=params,
+            params=dict(
+                data=data,
+                data_b64=data_b64,
+                name=name,
+                type=type,
+                format=format,
+                options=json.dumps(options) if options else None,
+            ),
         )
         return contents
 
@@ -54,16 +48,13 @@ class NodeAPI(object):
         options=None,
     ):
         url = self.base_url + "nodes/%s/print_hello" % id
-        params = dict()
-        if not type == None:
-            params["type"] = type
-        if not format == None:
-            params["format"] = format
-        if not options == None:
-            params["options"] = json.dumps(options)
         contents = self.post(
             url,
-            params=params,
+            params=dict(
+                type=type,
+                format=format,
+                options=json.dumps(options) if options else None,
+            ),
         )
         return contents
 
@@ -79,24 +70,17 @@ class NodeAPI(object):
         options=None,
     ):
         url = self.base_url + "nodes/%s/printers/print" % id
-        params = dict()
-        if not printer == None:
-            params["printer"] = printer
-        if not data == None:
-            params["data"] = data
-        if not data_b64 == None:
-            params["data_b64"] = data_b64
-        if not name == None:
-            params["name"] = name
-        if not type == None:
-            params["type"] = type
-        if not format == None:
-            params["format"] = format
-        if not options == None:
-            params["options"] = json.dumps(options)
         contents = self.post(
             url,
-            params=params,
+            params=dict(
+                printer=printer,
+                data=data,
+                data_b64=data_b64,
+                name=name,
+                type=type,
+                format=format,
+                options=json.dumps(options) if options else None,
+            ),
         )
         return contents
 
@@ -104,18 +88,14 @@ class NodeAPI(object):
         self, id, printer=None, type=None, format=None, options=None
     ):
         url = self.base_url + "nodes/%s/printers/print_hello" % id
-        params = dict()
-        if not printer == None:
-            params["printer"] = printer
-        if not type == None:
-            params["type"] = type
-        if not format == None:
-            params["format"] = format
-        if not options == None:
-            params["options"] = json.dumps(options)
         contents = self.post(
             url,
-            params=params,
+            params=dict(
+                printer=printer,
+                type=type,
+                format=format,
+                options=json.dumps(options) if options else None,
+            ),
         )
         return contents
 
