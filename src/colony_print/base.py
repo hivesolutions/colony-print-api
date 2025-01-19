@@ -3,6 +3,7 @@
 
 import appier
 
+from .job import JobAPI
 from .node import NodeAPI
 
 BASE_URL = "https://print.bemisc.com/api/"
@@ -10,7 +11,7 @@ BASE_URL = "https://print.bemisc.com/api/"
 base URL value is provided to the constructor """
 
 
-class API(appier.API, NodeAPI):
+class API(appier.API, JobAPI, NodeAPI):
     """
     Implementation of the Colony Print API specification
     for a simplified python client usage.

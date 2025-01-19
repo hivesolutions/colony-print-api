@@ -3,7 +3,7 @@
 
 from typing import NotRequired, Sequence, TypedDict
 
-from .job import JobsResult
+from .job import JobsResult, PrintResult
 
 class Node(TypedDict):
     name: str
@@ -24,14 +24,14 @@ class NodeAPI:
         type: str | None = None,
         format: str | None = None,
         options: dict | None = None,
-    ) -> str: ...
+    ) -> PrintResult: ...
     def print_hello_default_node(
         self,
         id: str,
         type: str | None = None,
         format: str | None = None,
         options: dict | None = None,
-    ) -> str: ...
+    ) -> PrintResult: ...
     def print_printer_node(
         self,
         id: str,
@@ -42,7 +42,7 @@ class NodeAPI:
         type: str | None = None,
         format: str | None = None,
         options: dict | None = None,
-    ) -> str: ...
+    ) -> PrintResult: ...
     def print_hello_printer_node(
         self,
         id: str,
@@ -50,4 +50,4 @@ class NodeAPI:
         type: str | None = None,
         format: str | None = None,
         options: dict | None = None,
-    ) -> str: ...
+    ) -> PrintResult: ...

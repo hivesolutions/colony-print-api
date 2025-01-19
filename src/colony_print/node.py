@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import json
+
 
 class NodeAPI(object):
 
@@ -27,13 +29,13 @@ class NodeAPI(object):
         url = self.base_url + "nodes/%s/print" % id
         contents = self.post(
             url,
-            data_j=dict(
+            params=dict(
                 data=data,
                 data_b64=data_b64,
                 name=name,
                 type=type,
                 format=format,
-                options=options,
+                options=json.dumps(options) if options else None,
             ),
         )
         return contents
@@ -48,10 +50,10 @@ class NodeAPI(object):
         url = self.base_url + "nodes/%s/print_hello" % id
         contents = self.post(
             url,
-            data_j=dict(
+            params=dict(
                 type=type,
                 format=format,
-                options=options,
+                options=json.dumps(options) if options else None,
             ),
         )
         return contents
@@ -70,14 +72,14 @@ class NodeAPI(object):
         url = self.base_url + "nodes/%s/printers/print" % id
         contents = self.post(
             url,
-            params=dict(printer=printer),
-            data_j=dict(
+            params=dict(
+                printer=printer,
                 data=data,
                 data_b64=data_b64,
                 name=name,
                 type=type,
                 format=format,
-                options=options,
+                options=json.dumps(options) if options else None,
             ),
         )
         return contents
@@ -86,14 +88,13 @@ class NodeAPI(object):
         self, id, printer, type=None, format=None, options=None
     ):
         url = self.base_url + "nodes/%s/printers/print_hello" % id
-        print(printer)
         contents = self.post(
             url,
-            params=dict(printer=printer),
-            data_j=dict(
+            params=dict(
+                printer=printer,
                 type=type,
                 format=format,
-                options=options,
+                options=json.dumps(options) if options else None,
             ),
         )
         return contents

@@ -3,4 +3,4 @@
 
 from . import printer
 
-from .printer import print
+from .printer import print, save
