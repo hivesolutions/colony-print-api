@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from . import sender
+from . import printer
 
-from .sender import send
+from .printer import print

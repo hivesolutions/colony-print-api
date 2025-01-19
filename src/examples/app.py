@@ -21,22 +21,10 @@ class ColonyPrintApp(appier.WebApp):
         result = api.ping()
         return result
 
-    @appier.route("/send", "GET")
-    def send(self):
-        receivers = self.field("receivers", [], cast=list)
-        subject = self.field("subject", "Test email")
-        title = self.field("title", "Test email")
-        contents = self.field("contents", "Test email")
-        copyright = self.field("copyright", "Hive Solutions")
-        payload = dict(
-            receivers=receivers,
-            subject=subject,
-            title=title,
-            contents=contents,
-            copyright=copyright,
-        )
+    @appier.route("/nodes", "GET")
+    def nodes(self):
         api = self.get_api()
-        result = api.send(payload)
+        result = api.list_nodes()
         return result
 
     def get_api(self):

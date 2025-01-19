@@ -3,12 +3,14 @@
 
 import appier
 
+from .node import NodeAPI
+
 BASE_URL = "https://print.bemisc.com/api/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
 
-class API(appier.API):
+class API(appier.API, NodeAPI):
     """
     Implementation of the Colony Print API specification
     for a simplified python client usage.
@@ -42,23 +44,6 @@ class API(appier.API):
         contents = self.get(url, auth=False)
         return contents
 
-    def send(self, payload):
-        url = self.base_url + "send"
-        contents = self.post(url, data_j=payload)
-        return contents
 
-
-class Attachment(dict):
-    pass
-
-
-class AttachmentPayload(dict):
-    pass
-
-
-class Message(dict):
-    pass
-
-
-class MessagePayload(dict):
+class Ping(dict):
     pass

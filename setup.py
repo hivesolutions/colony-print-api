@@ -14,7 +14,7 @@ setuptools.setup(
     keywords="colony-print api",
     url="http://colony-print-api.hive.pt",
     zip_safe=False,
-    packages=["colony_print"],
+    packages=["colony_print", "colony_print.scripts"],
     test_suite="colony_print.test",
     package_dir={"": os.path.normpath("src")},
     package_data={"colony_print": ["*.pyi"]},

@@ -7,17 +7,14 @@ import appier
 import colony_print
 
 
-def send(*args, **kwargs):
+def print(*args, **kwargs):
     api = colony_print.API()
     return api.send(kwargs)
 
 
 if __name__ == "__main__":
-    receivers = appier.conf("RECEIVERS", [], cast=list)
-    subject = appier.conf("SUBJECT", None)
-    title = appier.conf("TITLE", None)
-    contents = appier.conf("CONTENTS", None)
-    copyright = appier.conf("COPYRIGHT", None)
+    node = appier.conf("NODE", [], cast=list)
+    printer = appier.conf("PRINTER", None)
 
     kwargs = dict()
     if receivers:
