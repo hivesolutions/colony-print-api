@@ -27,9 +27,9 @@ def save(id, printer=None):
 
     job_id = result["id"]
     result = api.wait_job(job_id)
-
     if not "output_data" in result:
         raise appier.OperationalError(message="No output data in result")
+
     data_b64 = result["output_data"]
     data = base64.b64decode(data_b64)
     with open("output.pdf", "wb") as file:
