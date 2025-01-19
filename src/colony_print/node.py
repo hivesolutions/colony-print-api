@@ -9,9 +9,9 @@ class NodeAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def jobs_node(self, id, *args, **kwargs):
+    def jobs_node(self, id):
         url = self.base_url + "nodes/%s/jobs" % id
-        contents = self.get(url, **kwargs)
+        contents = self.get(url)
         return contents
 
     def print_default_node(
@@ -23,8 +23,6 @@ class NodeAPI(object):
         type=None,
         format=None,
         options=None,
-        *args,
-        **kwargs
     ):
         url = self.base_url + "nodes/%s/print" % id
         contents = self.post(
@@ -37,12 +35,15 @@ class NodeAPI(object):
                 format=format,
                 options=options,
             ),
-            **kwargs
         )
         return contents
 
     def print_hello_default_node(
-        self, id, type=None, format=None, options=None, *args, **kwargs
+        self,
+        id,
+        type=None,
+        format=None,
+        options=None,
     ):
         url = self.base_url + "nodes/%s/print_hello" % id
         contents = self.post(
@@ -52,7 +53,6 @@ class NodeAPI(object):
                 format=format,
                 options=options,
             ),
-            **kwargs
         )
         return contents
 
@@ -66,14 +66,12 @@ class NodeAPI(object):
         type=None,
         format=None,
         options=None,
-        *args,
-        **kwargs
     ):
         url = self.base_url + "nodes/%s/printers/print" % id
         contents = self.post(
             url,
+            params=dict(printer=printer),
             data_j=dict(
-                printer=printer,
                 data=data,
                 data_b64=data_b64,
                 name=name,
@@ -81,24 +79,22 @@ class NodeAPI(object):
                 format=format,
                 options=options,
             ),
-            **kwargs
         )
         return contents
 
     def print_hello_printer_node(
-        self, id, printer, type=None, format=None, options=None, *args, **kwargs
+        self, id, printer, type=None, format=None, options=None
     ):
         url = self.base_url + "nodes/%s/printers/print_hello" % id
-        print(url)
+        print(printer)
         contents = self.post(
             url,
+            params=dict(printer=printer),
             data_j=dict(
-                printer=printer,
                 type=type,
                 format=format,
                 options=options,
             ),
-            **kwargs
         )
         return contents
 
