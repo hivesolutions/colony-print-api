@@ -13,6 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+*
+
+### Fixed
+
+*
+
+## [0.1.1] - 2025-01-19
+
+### Changed
+
 * Improved params passing removing the None ones
 
 ### Fixed

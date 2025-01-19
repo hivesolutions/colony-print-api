@@ -6,7 +6,7 @@ import setuptools
 
 setuptools.setup(
     name="colony-print-api",
-    version="0.1.0",
+    version="0.1.1",
     author="Hive Solutions Lda.",
     author_email="development@hive.pt",
     description="Colony Print API Client",
