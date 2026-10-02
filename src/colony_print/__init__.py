@@ -7,4 +7,4 @@ from . import node
 
 from .base import BASE_URL, API, Ping
 from .job import JobAPI, JobInfo, JobsResult, PrintResult
-from .node import NodeAPI, Node
+from .node import NodeAPI, font_entry, Node, NodeFont
