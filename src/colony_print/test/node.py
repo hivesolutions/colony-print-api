@@ -94,6 +94,38 @@ class NodeAPITest(unittest.TestCase):
         _method, _url, kwargs = self.requests[1]
         self.assertEqual(kwargs["params"]["name"], "label fonts")
 
+    def test_restart_node(self):
+        result = self.api.restart_node("node")
+        self.assertEqual(result, dict(result="success"))
+        self.assertEqual(
+            self.requests,
+            [("POST", "https://print.hive.pt/api/nodes/node/restart", {})],
+        )
+
+    def test_update_node(self):
+        result = self.api.update_node("node")
+        self.assertEqual(result, dict(result="success"))
+        self.assertEqual(
+            self.requests,
+            [("POST", "https://print.hive.pt/api/nodes/node/update", {})],
+        )
+
+    def test_auto_update_node(self):
+        result = self.api.auto_update_node("node")
+        self.assertEqual(result, dict(result="success"))
+        method, url, kwargs = self.requests[0]
+        self.assertEqual(method, "POST")
+        self.assertEqual(url, "https://print.hive.pt/api/nodes/node/auto_update")
+        self.assertEqual(kwargs, dict(params=dict(enabled="1")))
+
+        # the value is sent as the form field that is read by the server
+        # (1 or 0), whatever the (truthy or falsy) value that is provided
+        for enabled, value in ((True, "1"), (False, "0"), (None, "0"), (1, "1")):
+            self.api.auto_update_node("node", enabled=enabled)
+            _method, _url, kwargs = self.requests[-1]
+            self.assertEqual(kwargs["params"]["enabled"], value)
+        self.assertEqual(len(self.requests), 5)
+
     def test_font_entry(self):
         data = b"\x00\x01\x00\x00font file"
         path = os.path.join(self.target_dir, "colonia.ttf")

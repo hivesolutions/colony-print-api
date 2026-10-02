@@ -115,6 +115,21 @@ class NodeAPI(object):
         contents = self.post(url, params=dict(fonts=json.dumps(fonts), name=name))
         return contents
 
+    def restart_node(self, id):
+        url = self.base_url + "nodes/%s/restart" % id
+        contents = self.post(url)
+        return contents
+
+    def update_node(self, id):
+        url = self.base_url + "nodes/%s/update" % id
+        contents = self.post(url)
+        return contents
+
+    def auto_update_node(self, id, enabled=True):
+        url = self.base_url + "nodes/%s/auto_update" % id
+        contents = self.post(url, params=dict(enabled="1" if enabled else "0"))
+        return contents
+
 
 def font_entry(name, path, style=None):
     """
