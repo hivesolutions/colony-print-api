@@ -9,10 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Fonts sent with the print jobs, installed on demand by the nodes - [#29](https://github.com/hivesolutions/colony-print/issues/29)
-* Listing and installation of the fonts of the nodes - [#29](https://github.com/hivesolutions/colony-print/issues/29)
-* Building of the fonts to be sent from font files - [#29](https://github.com/hivesolutions/colony-print/issues/29)
-* Restart and update of the nodes, and their auto-update enabled and disabled - [#34](https://github.com/hivesolutions/colony-print/issues/34)
+*
 
 ### Changed
 
@@ -21,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 *
+
+## [0.2.0] - 2026-10-08
+
+### Added
+
+* Fonts sent with the print jobs, installed on demand by the nodes - [#29](https://github.com/hivesolutions/colony-print/issues/29)
+* Listing and installation of the fonts of the nodes - [#29](https://github.com/hivesolutions/colony-print/issues/29)
+* Building of the fonts to be sent from font files - [#29](https://github.com/hivesolutions/colony-print/issues/29)
+* Restart and update of the nodes, and their auto-update enabled and disabled - [#34](https://github.com/hivesolutions/colony-print/issues/34)
 
 ## [0.1.2] - 2025-01-19
 
