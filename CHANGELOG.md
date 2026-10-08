@@ -9,15 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-*
+* Testing under Python 3.13 and 3.14
 
 ### Changed
 
-*
+* Updated the CI workflows to the latest version of the actions
 
 ### Fixed
 
-*
+* Source distribution missing from the PyPI releases
 
 ## [0.2.0] - 2026-10-08
 
