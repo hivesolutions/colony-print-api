@@ -6,7 +6,7 @@ import appier
 from .job import JobAPI
 from .node import NodeAPI
 
-BASE_URL = "https://print.bemisc.com/api/"
+BASE_URL = "https://print.bemisc.com/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
